@@ -7,7 +7,7 @@ char space[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 int row;
 int column;
 char token = 'x';
-bool tie = false;
+bool isDraw = false;
 string n1 = "";
 string n2 = "";
 
@@ -98,7 +98,7 @@ bool functionthree() {
             }
         }
     }
-    tie = true;
+    isDraw = true;
     return true;
 }
 
@@ -115,7 +115,7 @@ void playAgain() {
             }
         }
         token = 'x';
-        tie = false;
+        isDraw = false;
     } else {
         cout << "Thanks for playing! Goodbye." << endl;
         exit(0);
@@ -135,9 +135,9 @@ int main() {
             functionthree();
         }
 
-        if (token == 'x' && !tie) {
+        if (token == 'x' && !isDraw) {
             cout << n2 << " WINS!" << endl;
-        } else if (token == 'o' && !tie) {
+        } else if (token == 'o' && !isDraw) {
             cout << n1 << " WINS!" << endl;
         } else {
             cout << "IT'S A DRAW!" << endl;
