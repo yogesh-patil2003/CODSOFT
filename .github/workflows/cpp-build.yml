@@ -1,0 +1,19 @@
+name: C++ Build Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile all C++ applications
+        run: |
+          g++ -std=c++17 -Wall -Wextra number_guessing_game.cpp -o /tmp/number_guessing_game
+          g++ -std=c++17 -Wall -Wextra simple_calculator.cpp -o /tmp/simple_calculator
+          g++ -std=c++17 -Wall -Wextra tic_tac_toe.cpp -o /tmp/tic_tac_toe
+          g++ -std=c++17 -Wall -Wextra to_do_list.cpp -o /tmp/to_do_list

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
 char space[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
@@ -80,10 +82,12 @@ void functiontwo() {
 
 bool functionthree() {
     for (int i = 0; i < 3; i++) {
-        if (space[i][0] == space[i][1] && space[i][0] == space[i][2] || space[0][i] == space[1][i] && space[1][i] == space[2][i])
+        if ((space[i][0] == space[i][1] && space[i][0] == space[i][2]) ||
+            (space[0][i] == space[1][i] && space[1][i] == space[2][i]))
             return true;
     }
-    if (space[0][0] == space[1][1] && space[1][1] == space[2][2] || space[0][2] == space[1][1] && space[1][1] == space[2][0]) {
+    if ((space[0][0] == space[1][1] && space[1][1] == space[2][2]) ||
+        (space[0][2] == space[1][1] && space[1][1] == space[2][0])) {
         return true;
     }
 
@@ -95,7 +99,7 @@ bool functionthree() {
         }
     }
     tie = true;
-    return false;
+    return true;
 }
 
 void playAgain() {
@@ -112,7 +116,6 @@ void playAgain() {
         }
         token = 'x';
         tie = false;
-        int main(); 
     } else {
         cout << "Thanks for playing! Goodbye." << endl;
         exit(0);
